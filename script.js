@@ -1,28 +1,66 @@
-const p = new URLSearchParams(window.location.search);
+const params = new URLSearchParams(window.location.search);
 
-const barcode = p.get("barcode") || "200000000001";
-const name = p.get("name") || "Urban Stone";
-const code = p.get("code") || "ERM001";
-const qty = p.get("qty") || "30 pcs";
+const labels = document.getElementById("labels");
 
-document.getElementById("name").textContent = name;
-document.getElementById("code").textContent = code;
-document.getElementById("barcode").textContent = barcode;
-document.getElementById("qty").textContent = qty;
+params.forEach((value, key)=>{
 
-new QRCode(document.getElementById("qr"),{
-    text:barcode,
-    width:220,
-    height:220,
-    correctLevel:QRCode.CorrectLevel.H
+    if(!key.startsWith("i"))
+        return;
+
+    const parts=value.split("||");
+
+    const code=parts[0];
+    const url=parts[1];
+    const qty=parseFloat(parts[2]);
+    const pallet=parseFloat(parts[3]);
+
+    if(!pallet)
+        return;
+
+    const pallets=Math.ceil(qty/pallet);
+
+    for(let i=0;i<pallets;i++){
+
+        const current=Math.min(pallet,qty-(i*pallet));
+
+        const div=document.createElement("div");
+
+        div.className="label";
+
+        const qr=document.createElement("div");
+
+        div.appendChild(qr);
+
+        new QRCode(qr,{
+            text:url,
+            width:220,
+            height:220
+        });
+
+        const c=document.createElement("div");
+        c.className="code";
+        c.innerText=code;
+
+        div.appendChild(c);
+
+        const q=document.createElement("div");
+        q.className="qty";
+        q.innerText="Pallet "+(i+1)+"/"+pallets+"   "+current+" pcs";
+
+        div.appendChild(q);
+
+        labels.appendChild(div);
+
+    }
+
 });
 
 window.onload=()=>{
 
-    setTimeout(()=>{
+setTimeout(()=>{
 
-        window.print();
+window.print();
 
-    },500);
+},700);
 
-};
+}
