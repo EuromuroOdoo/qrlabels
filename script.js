@@ -9,10 +9,11 @@ params.forEach((value, key)=>{
 
     const parts=value.split("||");
 
-    const code=parts[0];
-    const url=parts[1];
-    const qty=parseFloat(parts[2]);
-    const pallet=parseFloat(parts[3]);
+    const code = parts[0];
+const name = decodeURIComponent(parts[1]);
+const url = parts[2];
+const qty = parseFloat(parts[3]);
+const pallet = parseFloat(parts[4]);
 
     if(!pallet)
         return;
@@ -65,19 +66,19 @@ params.forEach((value, key)=>{
 
 qrCode.append(qr);
 
-       const c=document.createElement("div");
-c.className="code";
-c.innerText=code;
+    const c = document.createElement("div");
+c.className = "code";
+c.innerText = code;
 div.appendChild(c);
 
-const n=document.createElement("div");
-n.className="name";
-n.innerText=name;
+const n = document.createElement("div");
+n.className = "name";
+n.innerText = name;
 div.appendChild(n);
 
-const q=document.createElement("div");
-q.className="qty";
-q.innerText=current + " units";
+const q = document.createElement("div");
+q.className = "qty";
+q.innerText = current + " units";
 div.appendChild(q);
 
         labels.appendChild(div);
