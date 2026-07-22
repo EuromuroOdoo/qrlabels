@@ -73,3 +73,24 @@ max-width:100%;
 line-height:1.2;
 
 }
+.name{
+    margin-top:6px;
+    font-size:15px;
+    font-weight:600;
+    text-align:center;
+    line-height:1.2;
+    max-width:100%;
+}
+
+.code{
+    margin-top:6px;
+    font-size:18px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.qty{
+    margin-top:6px;
+    font-size:18px;
+    font-weight:bold;
+}
