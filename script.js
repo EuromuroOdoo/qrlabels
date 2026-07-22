@@ -31,23 +31,54 @@ params.forEach((value, key)=>{
 
         div.appendChild(qr);
 
-        new QRCode(qr,{
-            text:url,
-            width:220,
-            height:220
-        });
+        const qrCode = new QRCodeStyling({
+    width:220,
+    height:220,
+    type:"svg",
 
-        const c=document.createElement("div");
-        c.className="code";
-        c.innerText=code;
+    data:url,
 
-        div.appendChild(c);
+    image:"logo.png",
 
-        const q=document.createElement("div");
-        q.className="qty";
-        q.innerText="Pallet "+(i+1)+"/"+pallets+"   "+current+" pcs";
+    dotsOptions:{
+        type:"rounded"
+    },
 
-        div.appendChild(q);
+    cornersSquareOptions:{
+        type:"extra-rounded"
+    },
+
+    cornersDotOptions:{
+        type:"dot"
+    },
+
+    imageOptions:{
+        crossOrigin:"anonymous",
+        margin:6,
+        imageSize:0.28
+    },
+
+    qrOptions:{
+        errorCorrectionLevel:"H"
+    }
+});
+
+qrCode.append(qr);
+
+       const c=document.createElement("div");
+c.className="code";
+c.innerText=code;
+div.appendChild(c);
+
+const n=document.createElement("div");
+n.className="name";
+n.innerText=name;
+div.appendChild(n);
+
+const q=document.createElement("div");
+q.className="qty";
+q.innerText=current + " units";
+div.appendChild(q);
 
         labels.appendChild(div);
 
