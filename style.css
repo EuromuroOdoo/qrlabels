@@ -1,122 +1,71 @@
-body{
-
-margin:0;
-padding:10mm;
-
-font-family:Arial;
-
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: white;
 }
 
-#labels{
-
-display:flex;
-
-flex-wrap:wrap;
-
-gap:12mm;
-
+#labels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
 }
 
-.label{
-
-width:90mm;
-
-height:90mm;
-
-border:1px solid #000;
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-justify-content:center;
-
-padding:5mm;
-
-box-sizing:border-box;
-
-page-break-inside:avoid;
-
+.label {
+    width: 280px;
+    min-height: 430px;
+    border: 2px solid #333;
+    box-sizing: border-box;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    page-break-inside: avoid;
 }
 
-.code{
-
-margin-top:5mm;
-
-font-size:18px;
-
-font-weight:bold;
-
+.label canvas,
+.label svg {
+    max-width: 100%;
+    height: auto;
 }
 
-.qty{
-
-font-size:16px;
-
-margin-top:3mm;
-
-}
-.name{
-
-margin-top:5px;
-
-font-size:15px;
-
-font-weight:500;
-
-text-align:center;
-
-max-width:100%;
-
-line-height:1.2;
-
-}
-.name{
-    margin-top:6px;
-    font-size:15px;
-    font-weight:600;
-    text-align:center;
-    line-height:1.2;
-    max-width:100%;
+.label > div:first-child canvas,
+.label > div:first-child svg {
+    width: 190px !important;
+    height: 190px !important;
 }
 
-.code{
-    margin-top:6px;
-    font-size:18px;
-    font-weight:bold;
-    text-align:center;
+.code {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    word-break: break-word;
 }
 
-.qty{
-    margin-top:6px;
-    font-size:18px;
-    font-weight:bold;
-}
-.mo{
-    margin-top:6px;
-    font-size:14px;
-    color:#666;
-    text-align:center;
-    font-weight:600;
+.name {
+    margin-top: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
-.barcode{
-    margin-top:8px;
-    width:100%;
+.qty {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 700;
 }
 
-.barcode text{
-    font-size:15px;
-    font-family:Arial;
+.barcode {
+    width: 200px !important;
+    height: auto !important;
+    margin-top: 12px;
 }
 
-.barcode{
-    display:flex;
-    justify-content:center;
-}
-.barcode{
-    width:240px;
-    margin-top:8px;
+.mo {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #666;
+    font-weight: 700;
 }
