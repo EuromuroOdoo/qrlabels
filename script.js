@@ -76,12 +76,29 @@ for (let i = 0; i < pallets; i++) {
     q.innerText = current + " units";
     div.appendChild(q);
 
-    if (barcode) {
-        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svg.className.baseVal = "barcode";
-        svg.dataset.barcode = barcode;
-        div.appendChild(svg);
+    // Barcode
+if (barcode) {
+
+    const canvas = document.createElement("canvas");
+    canvas.className = "barcode";
+    div.appendChild(canvas);
+
+    try {
+
+        bwipjs.toCanvas(canvas, {
+            bcid: "code128",
+            text: barcode,
+            scale: 3,
+            height: 12,
+            includetext: true,
+            textxalign: "center"
+        });
+
+    } catch (e) {
+        console.error(e);
     }
+
+}
 
     const m = document.createElement("div");
     m.className = "mo";
