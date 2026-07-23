@@ -116,3 +116,7 @@ line-height:1.2;
     display:flex;
     justify-content:center;
 }
+.barcode{
+    width:240px;
+    margin-top:8px;
+}
