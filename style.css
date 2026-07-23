@@ -101,3 +101,18 @@ line-height:1.2;
     text-align:center;
     font-weight:600;
 }
+
+.barcode{
+    margin-top:8px;
+    width:100%;
+}
+
+.barcode text{
+    font-size:15px;
+    font-family:Arial;
+}
+
+.barcode{
+    display:flex;
+    justify-content:center;
+}
