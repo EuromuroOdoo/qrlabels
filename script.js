@@ -129,3 +129,12 @@ Promise.all(qrPromises).then(() => {
     }, 200);
 
 });
+window.addEventListener("load", () => {
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                window.print();
+            }, 300);
+        });
+    });
+});
