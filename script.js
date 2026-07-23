@@ -7,7 +7,7 @@ const qty = parseFloat(p.get("qty") || 0);
 const pallet = parseFloat(p.get("pallet") || 1);
 const mo = decodeURIComponent(p.get("mo") || "");
 const barcode = p.get("barcode") || "";
-
+console.log("Barcode:", barcode);
 const labels = document.getElementById("labels");
 
 const pallets = Math.ceil(qty / pallet);
